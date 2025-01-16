@@ -9,7 +9,7 @@ wise-banking-api-client
 An unofficial Python client library for the [Wise API](https://docs.wise.com/api-docs/api-reference).
 
 The classes, functions and interfaces that this library provides are very much in-development and prone to change.
-This is a fork of [pywisetransfer]
+This is a fork of [pywisetransfer].
 
 [pywisetransfer]: https://github.com/jayaddison/pywisetransfer
 
