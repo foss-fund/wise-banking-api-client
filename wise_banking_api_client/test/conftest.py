@@ -10,6 +10,7 @@ You can add responses by running this in your codebase:
 
 """
 
+import os
 from typing import Generator
 from unittest.mock import MagicMock
 from munch import Munch
@@ -63,16 +64,18 @@ def currency(request):
 def pytest_addoption(parser: pytest.Parser) -> None:
     """Add options to the pytest run."""
     parser.addoption(
-        "--api_token", help="Run the tests on the real Wise Sandbox API.", default=None
+        "--api-key", help="Run the tests on the real Wise Sandbox API.", default=None
     )
 
 
 @pytest.fixture(scope="session")
 def api_token(request: pytest.FixtureRequest) -> str:
     """Return the API token or skip the test."""
-    api_token = request.config.getoption("--api_token")
+    api_token = request.config.getoption("--api-key")
     if api_token is None:
-        pytest.skip("--api_token not provided, skipping tests.")
+        api_token =  os.environ.get("WISE_API_KEY")
+    if api_token is None:
+        pytest.skip("--api-key option and WISE_API_KEY environment variable not provided, skipping tests.")
     return api_token
 
 

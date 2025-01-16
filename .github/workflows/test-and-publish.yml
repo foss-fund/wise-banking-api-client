@@ -52,7 +52,9 @@ jobs:
         # add the secret https://docs.github.com/de/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions
         WISE_API_KEY: ${{ secrets.WISE_API_KEY }} 
     - name: Run the tests with a real API key
-      run: tox -e py312 -- --api_token ${{ secrets.WISE_API_KEY }}
+      run: tox -e py312
+      env:
+        WISE_API_KEY: ${{ secrets.WISE_API_KEY }} 
   
   deploy-tag-to-pypi:
     # only deploy on tags, see https://stackoverflow.com/a/58478262/1320237

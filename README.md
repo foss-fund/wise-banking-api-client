@@ -604,7 +604,7 @@ tox
 You can also run the tests against the sandbox API:
 
 ```sh
-tox -e py312 -- --api_token=12345678-1234-1234-1234-123456789abcde
+WISE_API_KEY="12345678-1234-1234-1234-123456789abcde" tox -e py312
 ```
 
 ## Changelog
