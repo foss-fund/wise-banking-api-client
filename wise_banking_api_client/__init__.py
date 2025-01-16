@@ -1,4 +1,5 @@
 from __future__ import annotations
+from .endpoint import PrivateKeyForSCARequired, WiseAPIError, JsonEndpoint, JsonEndpointWithSCA
 from .client import Client, DEFAULT_PRIVATE_KEY, DEFAULT_PUBLIC_KEY
 from .model import *
 from .version import __version__, __version_tuple__, version, version_tuple
@@ -80,4 +81,8 @@ __all__ = [
     "PayInProduct",
     "version",
     "version_tuple",
+    "PrivateKeyForSCARequired",
+    "WiseAPIError",
+    "JsonEndpoint",
+    "JsonEndpointWithSCA",
 ]

@@ -30,6 +30,7 @@ https://sandbox.transferwise.tech/settings/public-keys
 from pathlib import Path
 from typing import Optional
 
+from wise_banking_api_client.endpoint import PrivateKeyForSCARequired
 from wise_banking_api_client.model.enum import StrEnum
 
 HERE = Path(__file__).parent
@@ -148,8 +149,7 @@ class Client:
                 raise ValueError(
                     "Please provide only one of wise_banking_api_client.private_key_file or private_key_data"
                 )
-            with open(private_key_file, "rb") as f:
-                private_key_data = f.read()
+            private_key_data = Path(private_key_file).read_bytes()
         if private_key_data == DEFAULT_PRIVATE_KEY.read_bytes() and environment == "live":
             raise ValueError(
                 "Do not use the private key provided for this package on the live environment. "
@@ -160,7 +160,7 @@ class Client:
         self.api_key = api_key
         self.environment = environment
         self.private_key_file = private_key_file
-        self.private_key_data = private_key_data
+        self.private_key_data: bytes | None = private_key_data
         self.add_resources()
 
     def can_read(self) -> bool:
@@ -204,6 +204,9 @@ class Client:
         """
         from wise_banking_api_client.endpoint import WiseAPIError
 
+        if self.private_key_data is None:
+            return False
+
         try:
             if not self.profiles.business:
                 return False
@@ -212,6 +215,8 @@ class Client:
             if e.json.status == 401:
                 # We are not authorized, the transfer id was not checked.
                 return False
+        except PrivateKeyForSCARequired:
+            return False
         return True
 
 

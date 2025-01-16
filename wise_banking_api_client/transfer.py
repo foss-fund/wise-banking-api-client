@@ -138,6 +138,9 @@ class Transfer:
                 we assume that the first personal profile is used.
             payment: Payment to perform
                 This will be paid from your balance if no value is provided.
+
+        Raises:
+            PrivateKeyForSCARequired: You must provide a private key
         """
         if not profile:
             if isinstance(transfer, TransferResponse):

@@ -1,18 +1,16 @@
 from __future__ import annotations
 
-from functools import partial, update_wrapper, wraps
 import functools
+from functools import partial, update_wrapper, wraps
 from typing import Any, Callable, Optional
 
 import apiron
 from apiron.endpoint import JsonEndpoint as ApironJsonEndpoint
-from pydantic import BaseModel
 from requests import JSONDecodeError
 from requests.exceptions import HTTPError
 
-from wise_banking_api_client.base import Base
-from wise_banking_api_client.signing import sign_sca_challenge
 from wise_banking_api_client.model.error import WiseAPIErrorResponse
+from wise_banking_api_client.signing import sign_sca_challenge
 
 
 class WiseAPIError(HTTPError):
@@ -87,6 +85,10 @@ class WiseAPIError(HTTPError):
         return wrapper
 
 
+class PrivateKeyForSCARequired(ValueError):
+    """In order to use this endpoint, we need a private key."""
+
+
 class JsonEndpoint(ApironJsonEndpoint):
     """A JSONEndpoint with customizations for this API."""
 
@@ -153,8 +155,8 @@ class JsonEndpointWithSCA(JsonEndpoint):
                 if resp.status_code == 403 and resp.headers["X-2FA-Approval-Result"] == "REJECTED":
                     challenge = resp.headers["X-2FA-Approval"]
                     if owner.client.private_key_data is None:  # type: ignore[union-attr]
-                        raise Exception(
-                            "Please provide pytransferwise.private_key_file or private_key_data to perform SCA authentication"
+                        raise PrivateKeyForSCARequired(
+                            "Please provide private_key_file or private_key_data to perform SCA authentication."
                         ) from e
 
                     self.sca_headers["X-Signature"] = sign_sca_challenge(
@@ -165,3 +167,6 @@ class JsonEndpointWithSCA(JsonEndpoint):
                 raise
 
         return perform_2fa_if_needed
+
+
+__all__ = ["PrivateKeyForSCARequired", "WiseAPIError", "JsonEndpoint", "JsonEndpointWithSCA"]
