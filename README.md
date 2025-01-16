@@ -54,7 +54,7 @@ You can now upload the public key to https://wise.com or https://sandbox.transfe
 You can check if your API key and private key work.
 
 ```sh
-$ WISE_API_KEY="your api key" python -m wise_banking_api_client check
+$ WISE_API_KEY="your api key" wise check
 Permissions on sandbox: read+write+sca
 Permissions on live: none
 ```
