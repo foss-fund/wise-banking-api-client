@@ -63,9 +63,7 @@ def currency(request):
 
 def pytest_addoption(parser: pytest.Parser) -> None:
     """Add options to the pytest run."""
-    parser.addoption(
-        "--api-key", help="Run the tests on the real Wise Sandbox API.", default=None
-    )
+    parser.addoption("--api-key", help="Run the tests on the real Wise Sandbox API.", default=None)
 
 
 @pytest.fixture(scope="session")
@@ -73,9 +71,11 @@ def api_token(request: pytest.FixtureRequest) -> str:
     """Return the API token or skip the test."""
     api_token = request.config.getoption("--api-key")
     if api_token is None:
-        api_token =  os.environ.get("WISE_API_KEY")
+        api_token = os.environ.get("WISE_API_KEY")
     if api_token is None:
-        pytest.skip("--api-key option and WISE_API_KEY environment variable not provided, skipping tests.")
+        pytest.skip(
+            "--api-key option and WISE_API_KEY environment variable not provided, skipping tests."
+        )
     return api_token
 
 
