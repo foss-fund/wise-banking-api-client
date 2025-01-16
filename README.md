@@ -1,4 +1,10 @@
-# wise-banking-api-client
+wise-banking-api-client
+=======================
+
+[![](https://badge.fury.io/py/wise-banking-api-client.svg)](https://pypi.org/project/wise-banking-api-client/)
+[![](https://img.shields.io/pypi/pyversions/wise-banking-api-client)](https://pypi.org/project/wise-banking-api-client)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/foss-fund/wise-banking-api-client/test-and-publish.yml?logo=github)](https://github.com/foss-fund/wise-banking-api-client/actions)
+![](https://img.shields.io/badge/code%20style-black-000000.svg)
 
 An unofficial Python client library for the [Wise API](https://docs.wise.com/api-docs/api-reference).
 
