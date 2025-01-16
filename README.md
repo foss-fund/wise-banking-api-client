@@ -471,11 +471,11 @@ We use the business profile for this.
     ...     currency=CurrencyCode.EUR,
     ...     type=AccountRequirementType.iban,
     ...     profile=business_profile.id,
-    ...     accountHolderName="Max Mustermann",
+    ...     accountHolderName="Max Mustermann", # required, see above
     ...     ownedByCustomer=False,
     ...     details=RecipientDetails(
-    ...         legalType=LegalType.PRIVATE,
-    ...         IBAN="DE75512108001245126199"
+    ...         legalType=LegalType.PRIVATE,    # required, see above
+    ...         IBAN="DE75512108001245126199"   # required, see above
     ...     )
     ... )
     >>> created_iban_recipient = client.recipient_accounts.create_recipient(iban_recipient)
@@ -621,4 +621,4 @@ WISE_API_KEY="12345678-1234-1234-1234-123456789abcde" tox -e py312
 
 ## License
 
-The code is released under the [AGPL License](LICENSE).
+The code is released under the AGPL License.
