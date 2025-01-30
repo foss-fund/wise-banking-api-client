@@ -662,7 +662,7 @@ To create a new release:
 
     ```sh
     git add .
-    git commit -m "Add new release"
+    git commit -m "v0.0.2"
     git push
     ```
 
@@ -679,6 +679,12 @@ The CI should build, test and push a new version to [PyPI].
 [PyPI]: https://pypi.org/project/wise-banking-api-client/
 
 ## Changelog
+
+### v0.0.2
+
+* Remove unused test environments
+* Link to pywisetransfer and explain difference
+* Add Release Section
 
 ### v0.0.1
 
