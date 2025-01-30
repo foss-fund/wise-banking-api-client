@@ -8,7 +8,6 @@ from wise_banking_api_client.model.quote import (
     QuoteResponse,
 )
 
-
 EXAMPLE_RESPONSE = {
     "clientId": "transferwise-personal-tokens",
     "createdTime": "2024-12-31T17:21:44Z",
@@ -43,7 +42,11 @@ EXAMPLE_RESPONSE = {
                     {
                         "label": "Our fee",
                         "type": "TRANSFERWISE",
-                        "value": {"amount": 1.99, "currency": "GBP", "label": "1.99 GBP"},
+                        "value": {
+                            "amount": 1.99,
+                            "currency": "GBP",
+                            "label": "1.99 GBP",
+                        },
                     }
                 ],
                 "priceDecisionReferenceId": "5076f371-349c-43b4-e6dc-15a6453d39ce",
@@ -82,7 +85,11 @@ EXAMPLE_RESPONSE = {
                     {
                         "label": "Our fee",
                         "type": "TRANSFERWISE",
-                        "value": {"amount": 3.44, "currency": "GBP", "label": "3.44 GBP"},
+                        "value": {
+                            "amount": 3.44,
+                            "currency": "GBP",
+                            "label": "3.44 GBP",
+                        },
                     }
                 ],
                 "priceDecisionReferenceId": "5076f371-349c-43b4-e6dc-15a6453d39ce",
@@ -121,7 +128,11 @@ EXAMPLE_RESPONSE = {
                     {
                         "label": "Our fee",
                         "type": "TRANSFERWISE",
-                        "value": {"amount": 1.4, "currency": "GBP", "label": "1.40 GBP"},
+                        "value": {
+                            "amount": 1.4,
+                            "currency": "GBP",
+                            "label": "1.40 GBP",
+                        },
                     }
                 ],
                 "priceDecisionReferenceId": "5076f371-349c-43b4-e6dc-15a6453d39ce",
@@ -160,7 +171,11 @@ EXAMPLE_RESPONSE = {
                     {
                         "label": "Our fee",
                         "type": "TRANSFERWISE",
-                        "value": {"amount": 1.4, "currency": "GBP", "label": "1.40 GBP"},
+                        "value": {
+                            "amount": 1.4,
+                            "currency": "GBP",
+                            "label": "1.40 GBP",
+                        },
                     }
                 ],
                 "priceDecisionReferenceId": "5076f371-349c-43b4-e6dc-15a6453d39ce",
@@ -199,7 +214,11 @@ EXAMPLE_RESPONSE = {
                     {
                         "label": "Our fee",
                         "type": "TRANSFERWISE",
-                        "value": {"amount": 1.4, "currency": "GBP", "label": "1.40 GBP"},
+                        "value": {
+                            "amount": 1.4,
+                            "currency": "GBP",
+                            "label": "1.40 GBP",
+                        },
                     }
                 ],
                 "priceDecisionReferenceId": "5076f371-349c-43b4-e6dc-15a6453d39ce",
@@ -238,7 +257,11 @@ EXAMPLE_RESPONSE = {
                     {
                         "label": "Our fee",
                         "type": "TRANSFERWISE",
-                        "value": {"amount": 1.73, "currency": "GBP", "label": "1.73 GBP"},
+                        "value": {
+                            "amount": 1.73,
+                            "currency": "GBP",
+                            "label": "1.73 GBP",
+                        },
                     }
                 ],
                 "priceDecisionReferenceId": "5076f371-349c-43b4-e6dc-15a6453d39ce",
@@ -277,7 +300,11 @@ EXAMPLE_RESPONSE = {
                     {
                         "label": "Our fee",
                         "type": "TRANSFERWISE",
-                        "value": {"amount": 6.29, "currency": "GBP", "label": "6.29 GBP"},
+                        "value": {
+                            "amount": 6.29,
+                            "currency": "GBP",
+                            "label": "6.29 GBP",
+                        },
                     }
                 ],
                 "priceDecisionReferenceId": "5076f371-349c-43b4-e6dc-15a6453d39ce",
@@ -316,7 +343,11 @@ EXAMPLE_RESPONSE = {
                     {
                         "label": "Our fee",
                         "type": "TRANSFERWISE",
-                        "value": {"amount": 5.06, "currency": "GBP", "label": "5.06 GBP"},
+                        "value": {
+                            "amount": 5.06,
+                            "currency": "GBP",
+                            "label": "5.06 GBP",
+                        },
                     }
                 ],
                 "priceDecisionReferenceId": "5076f371-349c-43b4-e6dc-15a6453d39ce",
@@ -355,7 +386,11 @@ EXAMPLE_RESPONSE = {
                     {
                         "label": "Our fee",
                         "type": "TRANSFERWISE",
-                        "value": {"amount": 1.99, "currency": "GBP", "label": "1.99 GBP"},
+                        "value": {
+                            "amount": 1.99,
+                            "currency": "GBP",
+                            "label": "1.99 GBP",
+                        },
                     }
                 ],
                 "priceDecisionReferenceId": "5076f371-349c-43b4-e6dc-15a6453d39ce",
@@ -394,7 +429,11 @@ EXAMPLE_RESPONSE = {
                     {
                         "label": "Our fee",
                         "type": "TRANSFERWISE",
-                        "value": {"amount": 2.53, "currency": "GBP", "label": "2.53 GBP"},
+                        "value": {
+                            "amount": 2.53,
+                            "currency": "GBP",
+                            "label": "2.53 GBP",
+                        },
                     }
                 ],
                 "priceDecisionReferenceId": "5076f371-349c-43b4-e6dc-15a6453d39ce",
@@ -433,7 +472,11 @@ EXAMPLE_RESPONSE = {
                     {
                         "label": "Our fee",
                         "type": "TRANSFERWISE",
-                        "value": {"amount": 1.99, "currency": "GBP", "label": "1.99 GBP"},
+                        "value": {
+                            "amount": 1.99,
+                            "currency": "GBP",
+                            "label": "1.99 GBP",
+                        },
                     }
                 ],
                 "priceDecisionReferenceId": "5076f371-349c-43b4-e6dc-15a6453d39ce",
@@ -472,7 +515,11 @@ EXAMPLE_RESPONSE = {
                     {
                         "label": "Our fee",
                         "type": "TRANSFERWISE",
-                        "value": {"amount": 1.99, "currency": "GBP", "label": "1.99 GBP"},
+                        "value": {
+                            "amount": 1.99,
+                            "currency": "GBP",
+                            "label": "1.99 GBP",
+                        },
                     }
                 ],
                 "priceDecisionReferenceId": "5076f371-349c-43b4-e6dc-15a6453d39ce",
@@ -511,7 +558,11 @@ EXAMPLE_RESPONSE = {
                     {
                         "label": "Our fee",
                         "type": "TRANSFERWISE",
-                        "value": {"amount": 4.32, "currency": "GBP", "label": "4.32 GBP"},
+                        "value": {
+                            "amount": 4.32,
+                            "currency": "GBP",
+                            "label": "4.32 GBP",
+                        },
                     }
                 ],
                 "priceDecisionReferenceId": "5076f371-349c-43b4-e6dc-15a6453d39ce",
@@ -550,7 +601,11 @@ EXAMPLE_RESPONSE = {
                     {
                         "label": "Our fee",
                         "type": "TRANSFERWISE",
-                        "value": {"amount": 5.06, "currency": "GBP", "label": "5.06 GBP"},
+                        "value": {
+                            "amount": 5.06,
+                            "currency": "GBP",
+                            "label": "5.06 GBP",
+                        },
                     }
                 ],
                 "priceDecisionReferenceId": "5076f371-349c-43b4-e6dc-15a6453d39ce",
@@ -589,7 +644,11 @@ EXAMPLE_RESPONSE = {
                     {
                         "label": "Our fee",
                         "type": "TRANSFERWISE",
-                        "value": {"amount": 2.78, "currency": "GBP", "label": "2.78 GBP"},
+                        "value": {
+                            "amount": 2.78,
+                            "currency": "GBP",
+                            "label": "2.78 GBP",
+                        },
                     }
                 ],
                 "priceDecisionReferenceId": "5076f371-349c-43b4-e6dc-15a6453d39ce",
@@ -628,7 +687,11 @@ EXAMPLE_RESPONSE = {
                     {
                         "label": "Our fee",
                         "type": "TRANSFERWISE",
-                        "value": {"amount": 6.29, "currency": "GBP", "label": "6.29 GBP"},
+                        "value": {
+                            "amount": 6.29,
+                            "currency": "GBP",
+                            "label": "6.29 GBP",
+                        },
                     }
                 ],
                 "priceDecisionReferenceId": "5076f371-349c-43b4-e6dc-15a6453d39ce",
@@ -667,7 +730,11 @@ EXAMPLE_RESPONSE = {
                     {
                         "label": "Our fee",
                         "type": "TRANSFERWISE",
-                        "value": {"amount": 3.44, "currency": "GBP", "label": "3.44 GBP"},
+                        "value": {
+                            "amount": 3.44,
+                            "currency": "GBP",
+                            "label": "3.44 GBP",
+                        },
                     }
                 ],
                 "priceDecisionReferenceId": "5076f371-349c-43b4-e6dc-15a6453d39ce",
@@ -714,7 +781,11 @@ EXAMPLE_RESPONSE = {
                     {
                         "label": "Our fee",
                         "type": "TRANSFERWISE",
-                        "value": {"amount": 1.22, "currency": "GBP", "label": "1.22 GBP"},
+                        "value": {
+                            "amount": 1.22,
+                            "currency": "GBP",
+                            "label": "1.22 GBP",
+                        },
                     }
                 ],
                 "priceDecisionReferenceId": "5076f371-349c-43b4-e6dc-15a6453d39ce",

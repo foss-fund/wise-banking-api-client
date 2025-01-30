@@ -10,26 +10,23 @@ See https://docs.wise.com/api-docs/api-reference/quote
 
 from __future__ import annotations
 
-from pprint import pprint
-from typing import Any, Optional
+from typing import Optional
 
+from wise_banking_api_client import Client
+from wise_banking_api_client.base import Base
 from wise_banking_api_client.model.account import (
     FilledInRecipientAccountRequest,
     RecipientAccountResponse,
 )
 from wise_banking_api_client.model.profile import Profile
-
-from .endpoint import JsonEndpoint
-from munch import munchify
-
-from wise_banking_api_client import Client
-from wise_banking_api_client.base import Base
 from wise_banking_api_client.model.quote import (
+    ExampleQuoteRequest,
     QuoteRequest,
     QuoteResponse,
-    ExampleQuoteRequest,
     QuoteUpdate,
 )
+
+from .endpoint import JsonEndpoint
 
 
 class QuoteService(Base):
@@ -142,4 +139,4 @@ class Quote:
         return QuoteResponse(**response)
 
 
-__all__ = ["Quote", "QuoteService", "ExampleQuoteRequest", "QuoteResponse"]
+__all__ = ["ExampleQuoteRequest", "Quote", "QuoteResponse", "QuoteService"]

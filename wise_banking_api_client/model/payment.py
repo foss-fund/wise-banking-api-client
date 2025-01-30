@@ -1,6 +1,7 @@
 """Models for funding a transfer."""
 
 from typing import ClassVar, Literal, Optional
+
 from wise_banking_api_client.model.base import BaseModel
 from wise_banking_api_client.model.enum import StrEnum
 
@@ -90,8 +91,8 @@ class PaymentResponse(BaseModel):
 
 __all__ = [
     "Payment",
-    "PaymentType",
     "PaymentResponse",
     "PaymentStatus",
+    "PaymentType",
     "PaymentWithPartnerReference",
 ]

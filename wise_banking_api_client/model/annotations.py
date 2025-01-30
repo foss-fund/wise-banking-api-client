@@ -2,7 +2,7 @@
 
 from typing import Annotated, TypeVar
 
-from pydantic import PlainSerializer, BaseModel
+from pydantic import BaseModel, PlainSerializer
 
 
 def remove_none(model: BaseModel):

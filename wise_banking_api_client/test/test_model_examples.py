@@ -1,19 +1,16 @@
 """Test all the examples."""
 
-from datetime import date
 from enum import Enum
+from importlib import import_module
 from pathlib import Path
 from typing import Type
 
 import pytest
-import wise_banking_api_client.model
-from importlib import import_module
 
-from wise_banking_api_client.model.base import BaseModel
 import wise_banking_api_client
 import wise_banking_api_client.model
+from wise_banking_api_client.model.base import BaseModel
 from wise_banking_api_client.model.enum import StrEnum
-from wise_banking_api_client.model.recipient.details import RecipientDetails
 
 MODELS_WITH_EXAMPLES = set()
 MODELS = set()
@@ -36,18 +33,23 @@ ENUMS.remove(Enum)
 ENUMS.remove(StrEnum)
 MODELS.remove(BaseModel)
 
-UPDATED_MODELS_ALL = list(
-    sorted(set([cls.__name__ for cls in MODELS | ENUMS] + wise_banking_api_client.model.__all__))
+UPDATED_MODELS_ALL = sorted(
+    set([cls.__name__ for cls in MODELS | ENUMS] + wise_banking_api_client.model.__all__)
 )
-UPDATED_PACKAGE_ALL = list(
-    sorted(set([cls.__name__ for cls in MODELS | ENUMS] + wise_banking_api_client.__all__))
+UPDATED_PACKAGE_ALL = sorted(
+    set([cls.__name__ for cls in MODELS | ENUMS] + wise_banking_api_client.__all__)
 )
 
 
 @pytest.mark.parametrize("model_class", MODELS_WITH_EXAMPLES)
 def test_parse_requests(model_class: Type[BaseModel]):
     """Check that the example can be parsed."""
-    print("checking", import_module(model_class.__module__).__file__, "->", model_class.__name__)
+    print(
+        "checking",
+        import_module(model_class.__module__).__file__,
+        "->",
+        model_class.__name__,
+    )
     e = model_class.model_example()
     json: str = "\n    " + "\n    ".join(e.model_dump_json(indent=4).splitlines()) + "\n    "
     print("EXAMPLE_JSON: ", repr(e.EXAMPLE_JSON))
@@ -64,7 +66,7 @@ def test_parse_requests(model_class: Type[BaseModel]):
     )
     print()
     print("in", import_module(model_class.__module__).__file__, "->", model_class.__name__)
-    assert e.EXAMPLE_JSON == json
+    assert json == e.EXAMPLE_JSON
 
 
 @pytest.mark.parametrize("model_class", MODELS | ENUMS)

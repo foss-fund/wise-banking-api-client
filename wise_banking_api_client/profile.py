@@ -6,7 +6,13 @@ from typing import Any
 from wise_banking_api_client import Client
 from wise_banking_api_client.base import Base
 from wise_banking_api_client.endpoint import JsonEndpoint
-from wise_banking_api_client.model.profile import Profiles, profile_type, Profile as ProfileModel
+from wise_banking_api_client.model.profile import (
+    Profile as ProfileModel,
+)
+from wise_banking_api_client.model.profile import (
+    Profiles,
+    profile_type,
+)
 
 
 class ProfileService(Base):

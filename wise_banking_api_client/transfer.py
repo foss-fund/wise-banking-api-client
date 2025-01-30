@@ -6,19 +6,21 @@ See https://docs.wise.com/api-docs/api-reference/transfer
 
 """
 
-from pprint import pprint
 from typing import List, Optional
 
 from apiron import Timeout
 
-from wise_banking_api_client.model.payment import Payment, PaymentResponse
-from wise_banking_api_client.model.profile import Profile
-from wise_banking_api_client.model.requirements import TransferRequirement, TransferRequirements
-from wise_banking_api_client.model.transfer import TransferRequest, TransferResponse
-from .endpoint import JsonEndpoint, JsonEndpointWithSCA
-
 from wise_banking_api_client import Client
 from wise_banking_api_client.base import Base
+from wise_banking_api_client.model.payment import Payment, PaymentResponse
+from wise_banking_api_client.model.profile import Profile
+from wise_banking_api_client.model.requirements import (
+    TransferRequirement,
+    TransferRequirements,
+)
+from wise_banking_api_client.model.transfer import TransferRequest, TransferResponse
+
+from .endpoint import JsonEndpoint, JsonEndpointWithSCA
 
 
 class TransferService(Base):
@@ -28,7 +30,8 @@ class TransferService(Base):
     get_requirements = JsonEndpoint(default_method="POST", path="/v1/transfer-requirements")
     get_requirements.timeout_spec = Timeout(1, 10)  # requirements take a bit longer
     fund = JsonEndpointWithSCA(
-        default_method="POST", path="/v3/profiles/{profile_id}/transfers/{transfer_id}/payments"
+        default_method="POST",
+        path="/v3/profiles/{profile_id}/transfers/{transfer_id}/payments",
     )
 
 

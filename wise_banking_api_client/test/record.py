@@ -7,6 +7,7 @@ Use it like this:
 
 from pathlib import Path
 from typing import Optional
+
 from wise_banking_api_client.client import Client
 
 HERE = Path(__file__).parent
@@ -73,4 +74,4 @@ class TestClient(Client):
         self.rsps.stop(allow_assert=False)
 
 
-__all__ = ["RESPONSES", "record", "TestClient"]
+__all__ = ["RESPONSES", "TestClient", "record"]

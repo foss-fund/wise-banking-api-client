@@ -1,7 +1,6 @@
-wise-banking-api-client
-=======================
+# wise-banking-api-client
 
-[![PyPI Package](https://badge.fury.io/py/wise-banking-api-client.svg)](https://pypi.org/project/wise-banking-api-client/)
+[![PyPI Package](https://badge.fury.io/py/wise-banking-api-client.svg)][PyPI]
 [![Python Versions](https://img.shields.io/pypi/pyversions/wise-banking-api-client)](https://pypi.org/project/wise-banking-api-client)
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/foss-fund/wise-banking-api-client/test-and-publish.yml?logo=github)](https://github.com/foss-fund/wise-banking-api-client/actions)
 [![Downloads](https://img.shields.io/pypi/dm/wise-banking-api-client.svg)](https://pypi.org/project/wise-banking-api-client#files)
@@ -21,6 +20,8 @@ Ecosystem:
 [pydantic]: https://docs.pydantic.dev
 
 ## Installation
+
+You can install this package from [PyPI]:
 
 ```bash
 pip install wise-banking-api-client
@@ -606,7 +607,23 @@ We can now create a transfer.
 
 [SCA]: https://docs.wise.com/api-docs/features/strong-customer-authentication-2fa/personal-token-sca
 
-## Run tests
+## Development
+
+To setup this project for development, you need
+
+- [git](https://git-scm.com/)
+- [Python 3](https://www.python.org/)
+- [tox](https://tox.wiki/)
+
+
+Clone the repository:
+
+```sh
+git clone https://github.com/foss-fund/wise-banking-api-client.git
+cd wise-banking-api-client
+```
+
+### Run tests
 
 ```sh
 # Within the wise_banking_api_client working directory
@@ -620,11 +637,52 @@ You can also run the tests against the sandbox API:
 WISE_API_KEY="12345678-1234-1234-1234-123456789abcde" tox -e py312
 ```
 
+### Format Code
+
+We use `black` to format the code.
+
+```sh
+tox -e black
+```
+
+### Build Binaries
+
+You can build the package and validate its correctness:
+
+```sh
+tox -e build
+```
+
+### New Release
+
+To create a new release:
+
+1. Edit the Changelog section to add all the changes.
+2. Create a new commit and [wait for the build tests to finish][ci]:
+
+    ```sh
+    git add .
+    git commit -m "Add new release"
+    git push
+    ```
+
+3. Create a tag for the commit:
+
+    ```sh
+    git tag v0.0.2
+    git push origin v0.0.2
+    ```
+
+The CI should build, test and push a new version to [PyPI].
+
+[ci]: https://github.com/foss-fund/wise-banking-api-client/actions
+[PyPI]: https://pypi.org/project/wise-banking-api-client/
+
 ## Changelog
 
 ### v0.0.1
 
-- Initial release
+* Initial release
 
 ## License
 

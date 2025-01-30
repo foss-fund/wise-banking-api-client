@@ -6,14 +6,14 @@ See https://docs.wise.com/api-docs/api-reference/transfer
 
 """
 
-from typing import List, Optional
-
-from wise_banking_api_client.model.requirements import TransferRequirement, TransferRequirements
-from wise_banking_api_client.model.transfer import TransferRequest, TransferResponse, TransferStatus
-from .endpoint import JsonEndpoint
-
 from wise_banking_api_client import Client
 from wise_banking_api_client.base import Base
+from wise_banking_api_client.model.transfer import (
+    TransferResponse,
+    TransferStatus,
+)
+
+from .endpoint import JsonEndpoint
 
 
 class TransferSimulationService(Base):

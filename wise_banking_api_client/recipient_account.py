@@ -9,8 +9,9 @@ Attributes:
     MAXIMUM_PAGE_SIZE: The maximum number of accounts per page as documented.
 """
 
-from pprint import pprint
-from typing import Generator, List, Optional
+from collections.abc import Generator
+from typing import Optional
+
 from wise_banking_api_client.base import Base
 from wise_banking_api_client.client import Client
 from wise_banking_api_client.endpoint import JsonEndpoint
@@ -22,13 +23,14 @@ from wise_banking_api_client.model.account import (
     RecipientAccountRequirements,
     RecipientAccountResponse,
 )
-from wise_banking_api_client.model.account_requirement_type import AccountRequirementType
-from wise_banking_api_client.model.currency import Currency, CurrencyCode
+from wise_banking_api_client.model.account_requirement_type import (
+    AccountRequirementType,
+)
+from wise_banking_api_client.model.currency import Currency
 from wise_banking_api_client.model.enum import StrEnum
 from wise_banking_api_client.model.profile import Profile
 from wise_banking_api_client.model.quote import QuoteResponse
 from wise_banking_api_client.model.requirements import AccountRequirement
-
 
 ACCEPT_MINOR_VERSION_1 = {"Accept-Minor-Version": "1"}
 
@@ -38,7 +40,8 @@ class RecipientAccountService(Base):
     create_recipient = JsonEndpoint(default_method="POST", path="/v1/accounts")
     get = JsonEndpoint(path="/v2/accounts/{account_id}")
     get_quote_requirements = JsonEndpoint(
-        path="/v1/quotes/{quote_id}/account-requirements", additional_headers=ACCEPT_MINOR_VERSION_1
+        path="/v1/quotes/{quote_id}/account-requirements",
+        additional_headers=ACCEPT_MINOR_VERSION_1,
     )
     get_requirements = JsonEndpoint(
         path="/v1/account-requirements",

@@ -2,9 +2,11 @@
 
 from typing import ClassVar, Literal, Optional
 
+from wise_banking_api_client.model.account_requirement_type import (
+    AccountRequirementType,
+)
 from wise_banking_api_client.model.base import BaseModel
 from wise_banking_api_client.model.enum import StrEnum
-from wise_banking_api_client.model.account_requirement_type import AccountRequirementType
 
 
 class RequiredFieldType(StrEnum):
@@ -144,7 +146,10 @@ class RequirementsList(list):
         setattr(
             cls,
             str(requirement_type),
-            property(get_requirement, doc=f"Get the {requirement_type} requirement if present."),
+            property(
+                get_requirement,
+                doc=f"Get the {requirement_type} requirement if present.",
+            ),
         )
         cls.__annotations__[str(requirement_type)] = Optional[result_type]
 
@@ -170,7 +175,7 @@ class RequirementBase(BaseModel):
     @property
     def keys(self) -> list[str]:
         """All keys to add to the JSON data."""
-        return list(sorted({group.key for field in self.fields for group in field.group}))
+        return sorted({group.key for field in self.fields for group in field.group})
 
     @property
     def required_keys(self) -> list[str]:
@@ -178,7 +183,7 @@ class RequirementBase(BaseModel):
 
         This is a shortcut for the required fields for easier validation.
         """
-        return list(sorted({group.key for field in self.required_fields for group in field.group}))
+        return sorted({group.key for field in self.required_fields for group in field.group})
 
     @property
     def required_fields(self) -> list[RequiredField]:
@@ -240,13 +245,13 @@ TransferRequirements._add_getter("transfer", TransferRequirement)
 
 
 __all__ = [
+    "AccountRequirement",
+    "AllowedValue",
+    "RequiredField",
     "RequiredFieldType",
     "RequiredGroupElement",
-    "RequiredField",
-    "AllowedValue",
+    "RequirementBase",
     "RequirementsList",
     "TransferRequirement",
     "TransferRequirements",
-    "RequirementBase",
-    "AccountRequirement",
 ]

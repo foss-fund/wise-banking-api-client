@@ -6,12 +6,16 @@ See https://docs.wise.com/api-docs/api-reference/recipient
 from typing import Annotated, ClassVar, Optional
 
 from pydantic import PlainSerializer
-from wise_banking_api_client.model.account_requirement_type import AccountRequirementType
+
+from wise_banking_api_client.model.account_requirement_type import (
+    AccountRequirementType,
+)
 from wise_banking_api_client.model.annotations import WithoutNone
 from wise_banking_api_client.model.base import BaseModel
 from wise_banking_api_client.model.currency import CURRENCY, CurrencyCode
-from .details import RecipientDetails
+
 from .address import AddressDetails
+from .details import RecipientDetails
 from .literals import LANGUAGE
 
 
@@ -79,4 +83,4 @@ class Recipient(BaseModel):
     details: WithoutNone[RecipientDetails]
 
 
-__all__ = ["RecipientDetails", "Recipient", "EmailDetails", "AddressDetails"]
+__all__ = ["AddressDetails", "EmailDetails", "Recipient", "RecipientDetails"]

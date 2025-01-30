@@ -1,8 +1,10 @@
 # generated file
 #    python -m wise_banking_api_client.model.recipient && black .
 
+from typing import ClassVar, Optional
+
 from pydantic import BaseModel, Field
-from typing import Optional, ClassVar
+
 from .literals import ADDRESS_COUNTRY
 
 
@@ -38,10 +40,18 @@ class AddressDetails(BaseModel):
         return self.countryCode or self.country
 
     city: Optional[str] = Field(
-        examples=None, min_length=1, max_length=255, pattern="(^.{1,255}$)", default=None
+        examples=None,
+        min_length=1,
+        max_length=255,
+        pattern="(^.{1,255}$)",
+        default=None,
     )
     firstLine: Optional[str] = Field(
-        examples=None, min_length=1, max_length=255, pattern="(^.{1,255}$)", default=None
+        examples=None,
+        min_length=1,
+        max_length=255,
+        pattern="(^.{1,255}$)",
+        default=None,
     )
     postCode: Optional[str] = Field(
         examples=None, min_length=1, max_length=32, pattern="(^.{1,32}$)", default=None

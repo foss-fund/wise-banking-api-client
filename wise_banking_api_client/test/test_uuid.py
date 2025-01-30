@@ -1,8 +1,9 @@
 """Test the UUID functionality."""
 
-from pydantic import BaseModel, ValidationError
 import pytest
-from wise_banking_api_client.model.uuid import new_uuid, UUID
+from pydantic import BaseModel, ValidationError
+
+from wise_banking_api_client.model.uuid import UUID, new_uuid
 
 
 class M(BaseModel):

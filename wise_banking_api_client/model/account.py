@@ -5,21 +5,22 @@ See https://docs.wise.com/api-docs/api-reference/recipient
 
 """
 
-from datetime import date
 from typing import Annotated, ClassVar, Optional
 
 from pydantic import BeforeValidator, Field
-from wise_banking_api_client.model.legal_type import LegalType
+
+from wise_banking_api_client.model.account_requirement_type import (
+    AccountRequirementType,
+)
 from wise_banking_api_client.model.annotations import WithoutNone
 from wise_banking_api_client.model.base import DOCUMENTED_BUT_ABSENT, BaseModel
 from wise_banking_api_client.model.country import COUNTRY_CODE
 from wise_banking_api_client.model.currency import CURRENCY
 from wise_banking_api_client.model.enum import StrEnum
-from wise_banking_api_client.model.profile import PROFILE_TYPE
+from wise_banking_api_client.model.legal_type import LegalType
 from wise_banking_api_client.model.recipient.details import (
     RecipientDetails as RecipientAccountRequestDetails,
 )
-from wise_banking_api_client.model.account_requirement_type import AccountRequirementType
 from wise_banking_api_client.model.requirements import (
     AccountRequirement,
     RequiredField,
@@ -397,18 +398,18 @@ class RecipientAccountList(list[RecipientAccountResponse]):
 
 
 __all__ = [
-    "RecipientAccountResponse",
-    "RecipientAccountRequest",
-    "RecipientAccountRequestDetails",
-    "RecipientName",
+    "AccountRequirement",
+    "AccountRequirementType",
     "CommonFieldMap",
     "DisplayField",
-    "AccountRequirement",
-    "RequiredField",
-    "RecipientAccountListResponse",
-    "RecipientAccountsSorting",
-    "AccountRequirementType",
     "FilledInRecipientAccountRequest",
     "LegalEntityType",
+    "RecipientAccountListResponse",
+    "RecipientAccountRequest",
+    "RecipientAccountRequestDetails",
     "RecipientAccountRequirements",
+    "RecipientAccountResponse",
+    "RecipientAccountsSorting",
+    "RecipientName",
+    "RequiredField",
 ]

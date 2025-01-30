@@ -1,9 +1,10 @@
 from datetime import date
-from typing import ClassVar, Optional, Union
-from typing_extensions import Annotated
+from typing import Annotated, ClassVar, Optional, Union
 
-from pydantic import BeforeValidator, Field
-from wise_banking_api_client.model.base import BaseModel, DEPRECATED
+from pydantic import BeforeValidator
+
+from wise_banking_api_client.model.base import DEPRECATED, BaseModel
+
 from .enum import StrEnum
 
 
@@ -253,14 +254,14 @@ class Profiles(list[Profile]):
 
 __all__ = [
     "PROFILE_TYPE",
-    "Profile",
-    "PersonalProfileDetails",
-    "profile_type",
-    "BusinessProfileDetails",
     "BusinessCategory",
-    "CompanyType",
+    "BusinessProfileDetails",
     "CompanyRole",
-    "Profiles",
+    "CompanyType",
     "Occupation",
     "OccupationFormat",
+    "PersonalProfileDetails",
+    "Profile",
+    "Profiles",
+    "profile_type",
 ]

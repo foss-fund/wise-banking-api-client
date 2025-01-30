@@ -41,7 +41,7 @@ class WiseAPIError(HTTPError):
 
     def __repr__(self) -> str:
         """The error."""
-        return f"{self.__class__.__name__} {str(self)}"
+        return f"{self.__class__.__name__} {self!s}"
 
     def __str__(self) -> str:
         """The error description."""
@@ -93,7 +93,10 @@ class JsonEndpoint(ApironJsonEndpoint):
     """A JSONEndpoint with customizations for this API."""
 
     def __init__(
-        self, *args: Any, additional_headers: Optional[dict[str, str]] = None, **kwargs: Any
+        self,
+        *args: Any,
+        additional_headers: Optional[dict[str, str]] = None,
+        **kwargs: Any,
     ):
         """Create a new endpoint."""
         super().__init__(*args, **kwargs)
@@ -160,7 +163,8 @@ class JsonEndpointWithSCA(JsonEndpoint):
                         ) from e
 
                     self.sca_headers["X-Signature"] = sign_sca_challenge(
-                        challenge, owner.client.private_key_data  # type: ignore[union-attr]
+                        challenge,
+                        owner.client.private_key_data,  # type: ignore[union-attr]
                     )
                     self.sca_headers["X-2FA-Approval"] = challenge
                     return caller(*args, **kwargs)
@@ -169,4 +173,9 @@ class JsonEndpointWithSCA(JsonEndpoint):
         return perform_2fa_if_needed
 
 
-__all__ = ["PrivateKeyForSCARequired", "WiseAPIError", "JsonEndpoint", "JsonEndpointWithSCA"]
+__all__ = [
+    "JsonEndpoint",
+    "JsonEndpointWithSCA",
+    "PrivateKeyForSCARequired",
+    "WiseAPIError",
+]

@@ -1,5 +1,6 @@
 import re
 from typing import Self
+
 from wise_banking_api_client.model.enum import StrEnum
 
 

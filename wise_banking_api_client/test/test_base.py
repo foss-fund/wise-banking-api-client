@@ -2,8 +2,10 @@
 
 from typing import Annotated
 from uuid import UUID
+
 from pydantic import PlainSerializer
 from pytest import MonkeyPatch
+
 from wise_banking_api_client.base import Base
 from wise_banking_api_client.model.base import BaseModel
 from wise_banking_api_client.model.currency import Currency

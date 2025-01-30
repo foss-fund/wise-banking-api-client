@@ -1,21 +1,23 @@
 """The model classes for transfers."""
 
 from __future__ import annotations
+
 from datetime import date
+from typing import Annotated, ClassVar, Optional
 from uuid import UUID
 
 from pydantic import Field, PlainSerializer
 
-from wise_banking_api_client.model.legal_type import LegalType
 from wise_banking_api_client.model.account import LegalEntityType, RecipientName
 from wise_banking_api_client.model.annotations import WithoutNone
 from wise_banking_api_client.model.currency import CURRENCY
+from wise_banking_api_client.model.legal_type import LegalType
 from wise_banking_api_client.model.recipient.address import AddressDetails
 from wise_banking_api_client.model.timestamp import Timestamp
 from wise_banking_api_client.model.uuid import new_uuid
-from .enum import StrEnum
-from typing import Annotated, ClassVar, Optional
+
 from .base import BaseModel
+from .enum import StrEnum
 
 
 class TransferStatus(StrEnum):
@@ -231,10 +233,10 @@ class TransferResponse(BaseModel):
 
 
 __all__ = [
+    "OriginatorGroup",
+    "TransferDetails",
     "TransferRequest",
     "TransferResponse",
-    "TransferDetails",
     "TransferStatus",
     "TransferStatusDescription",
-    "OriginatorGroup",
 ]

@@ -11,19 +11,23 @@ up-to-date.
 """
 
 from enum import IntEnum
-from typing import Annotated
 
 import pytest
+
 from wise_banking_api_client.client import Client
 from wise_banking_api_client.model.account import (
-    LegalEntityType,
     AccountRequirement,
+    AccountRequirementType,
+    LegalEntityType,
     RecipientAccountRequirements,
     RecipientAccountResponse,
-    AccountRequirementType,
 )
 from wise_banking_api_client.model.currency import Currency, CurrencyCode
-from wise_banking_api_client.model.payment import PaymentResponse, PaymentStatus, PaymentType
+from wise_banking_api_client.model.payment import (
+    PaymentResponse,
+    PaymentStatus,
+    PaymentType,
+)
 from wise_banking_api_client.model.profile import Profile, Profiles
 from wise_banking_api_client.model.quote import (
     ExampleQuoteRequest,
@@ -34,7 +38,11 @@ from wise_banking_api_client.model.quote import (
 )
 from wise_banking_api_client.model.recipient import Recipient
 from wise_banking_api_client.model.requirements import TransferRequirements
-from wise_banking_api_client.model.transfer import TransferRequest, TransferResponse, TransferStatus
+from wise_banking_api_client.model.transfer import (
+    TransferRequest,
+    TransferResponse,
+    TransferStatus,
+)
 
 
 class Order(IntEnum):
@@ -123,7 +131,9 @@ def test_2_1_example_quote(
 
 @pytest.mark.order(Order.CREATE_ENTRIES)
 def test__2_2_get_the_quote_again(
-    sandbox_client: Client, sandbox_example_quote: QuoteResponse, sandbox_business_profile: Profile
+    sandbox_client: Client,
+    sandbox_example_quote: QuoteResponse,
+    sandbox_business_profile: Profile,
 ):
     """Get the quote again and see if it changed."""
     quote: QuoteResponse = sandbox_client.quotes.get(
@@ -171,7 +181,8 @@ def test_3_2_quote_does_not_have_a_target_account(sandbox_quote_request: QuoteRe
 
 @pytest.mark.order(Order.CREATE_RECIPIENT)
 def test_4_1_iban_recipient(
-    sandbox_iban_recipient: RecipientAccountResponse, sandbox_iban_recipient_request: Recipient
+    sandbox_iban_recipient: RecipientAccountResponse,
+    sandbox_iban_recipient_request: Recipient,
 ):
     """Check tha the data matches."""
     assert sandbox_iban_recipient.email == "max@mustermann.de"
@@ -219,7 +230,9 @@ def test_5_2_update_has_target(sandbox_quote_updated: QuoteResponse, sandbox_quo
 
 
 @pytest.mark.order(Order.CREATE_TRANSFER)
-def test_6_1_requirements_include_reference(sandbox_transfer_requirements: TransferRequirements):
+def test_6_1_requirements_include_reference(
+    sandbox_transfer_requirements: TransferRequirements,
+):
     """Check the requirements."""
     assert sandbox_transfer_requirements.transfer is not None
     assert sandbox_transfer_requirements.transfer.keys == ["reference"]

@@ -1,6 +1,7 @@
 """Test the requirements for a recipient account."""
 
 import pytest
+
 from wise_banking_api_client.client import Client
 from wise_banking_api_client.model.currency import Currency
 

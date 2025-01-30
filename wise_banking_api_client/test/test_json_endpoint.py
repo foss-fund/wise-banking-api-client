@@ -1,10 +1,9 @@
 """This tests our JSON endpoint customizations."""
 
 import pytest
-from wise_banking_api_client import Client
+
 from wise_banking_api_client.base import Base
 from wise_banking_api_client.endpoint import JsonEndpoint, WiseAPIError
-from wise_banking_api_client.model.quote import QuoteResponse, ExampleQuoteRequest
 
 
 class MyService(Base):

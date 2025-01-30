@@ -3,7 +3,6 @@
 
 from typing import Literal, TypeAlias
 
-
 ACCOUNTTYPE_VALUES = [
     "ARMY_OR_POLICE_NUMBER",
     "BUSINESS_REGISTRATION_NUMBER",

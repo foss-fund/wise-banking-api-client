@@ -5,6 +5,7 @@ Attributes:
 """
 
 from typing import ClassVar, Optional, Self
+
 from pydantic import BaseModel
 
 
@@ -29,4 +30,4 @@ class BaseModel(BaseModel):
 DOCUMENTED_BUT_ABSENT = Optional
 DEPRECATED = Optional
 
-__all__ = ["BaseModel", "DOCUMENTED_BUT_ABSENT", "DEPRECATED"]
+__all__ = ["DEPRECATED", "DOCUMENTED_BUT_ABSENT", "BaseModel"]

@@ -6,13 +6,11 @@ from uuid import UUID
 from apiron import Service
 from apiron.client import call as apiron_call
 
-
 from wise_banking_api_client import Client
 from wise_banking_api_client.model.base import BaseModel
 
 
 class Base(Service):
-
     client: Client | None = None
 
     def __init__(self, *args: Any, **kwargs: Any):

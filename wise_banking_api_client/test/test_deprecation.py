@@ -42,7 +42,7 @@ class Class:
 
 
 @pytest.mark.parametrize(
-    "func, name, deprecated, result, message",
+    ("func", "name", "deprecated", "result", "message"),
     [
         (undecorated, "undecorated", False, 0, None),
         (bare_decorator, "bare_decorator", True, 1, None),

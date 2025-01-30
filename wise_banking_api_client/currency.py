@@ -3,10 +3,7 @@
 See https://docs.wise.com/api-docs/api-reference/currencies
 """
 
-from typing import Any
-
 from apiron import JsonEndpoint
-from munch import munchify
 
 from wise_banking_api_client import Client
 from wise_banking_api_client.base import Base

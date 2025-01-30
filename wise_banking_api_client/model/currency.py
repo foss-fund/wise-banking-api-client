@@ -1,12 +1,13 @@
 """The currency model."""
 
 from __future__ import annotations
-from typing import ClassVar, TypeVar
-from pydantic import BaseModel, Field
+
 import re
+from typing import ClassVar
+
+from pydantic import BaseModel, Field
 
 from wise_banking_api_client.model.enum import StrEnum
-
 
 CODE_REGEX = "^[A-Z][A-Z][A-Z]$"
 CURRENCY = Field(
@@ -18,7 +19,6 @@ CURRENCY = Field(
 
 
 class CurrencyGetter:
-
     def __init__(self, json: str):
         """Return the currency with this JSON."""
         self._json = json
@@ -552,4 +552,4 @@ class Currency(BaseModel):
 
 CurrencyCode = StrEnum("CurrencyCode", {code: code for code in Currency.codes})
 
-__all__ = ["Currency", "CURRENCY", "CurrencyCode"]
+__all__ = ["CURRENCY", "Currency", "CurrencyCode"]

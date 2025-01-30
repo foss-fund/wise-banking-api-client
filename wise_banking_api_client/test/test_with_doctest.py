@@ -14,7 +14,6 @@ This file should be tests, too:
 import doctest
 import importlib
 import pathlib
-import sys
 
 import pytest
 

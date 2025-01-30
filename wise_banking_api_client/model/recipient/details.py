@@ -1,14 +1,14 @@
 # generated file
 #    python -m wise_banking_api_client.model.recipient && black .
 
-from wise_banking_api_client.model.timestamp import Date
-from .address import AddressDetails
-from pydantic import BaseModel, Field
-from typing import Literal, Optional
 from datetime import date
+from typing import Optional
+
+from pydantic import BaseModel, Field
+
+from .address import AddressDetails
 from .literals import (
     ACCOUNTTYPE,
-    ADDRESS_COUNTRY,
     BANKCODE,
     IDDOCUMENTTYPE,
     LANGUAGE,
@@ -57,7 +57,11 @@ class RecipientDetails(BaseModel):
         default=None,
     )
     abartn: Optional[str] = Field(
-        examples=["020123456"], min_length=9, max_length=9, pattern="(^\\d{9}$)", default=None
+        examples=["020123456"],
+        min_length=9,
+        max_length=9,
+        pattern="(^\\d{9}$)",
+        default=None,
     )
     accountHolderName: Optional[str] = Field(
         examples=None,
@@ -122,10 +126,18 @@ class RecipientDetails(BaseModel):
         default=None,
     )
     billerCode: Optional[str] = Field(
-        examples=["12345"], min_length=3, max_length=10, pattern="(^[0-9]{3,10}$)", default=None
+        examples=["12345"],
+        min_length=3,
+        max_length=10,
+        pattern="(^[0-9]{3,10}$)",
+        default=None,
     )
     branchCode: Optional[str] = Field(
-        examples=["1234", "Please choose recipient's branch", "Please enter branch name"],
+        examples=[
+            "1234",
+            "Please choose recipient's branch",
+            "Please enter branch name",
+        ],
         min_length=3,
         max_length=6,
         pattern="(^[\\d\\-]{3,5}[\\dxX]$)",
@@ -156,7 +168,11 @@ class RecipientDetails(BaseModel):
         default=None,
     )
     cpf: Optional[str] = Field(
-        examples=["123.456.789-12"], min_length=None, max_length=None, pattern=None, default=None
+        examples=["123.456.789-12"],
+        min_length=None,
+        max_length=None,
+        pattern=None,
+        default=None,
     )
     customerReferenceNumber: Optional[str] = Field(
         examples=["0123456789"],
@@ -173,13 +189,25 @@ class RecipientDetails(BaseModel):
         default=None,
     )
     familyName: Optional[str] = Field(
-        examples=None, min_length=1, max_length=30, pattern="(^[а-яА-ЯёЁ' \\-]+$)", default=None
+        examples=None,
+        min_length=1,
+        max_length=30,
+        pattern="(^[а-яА-ЯёЁ' \\-]+$)",
+        default=None,
     )
     givenName: Optional[str] = Field(
-        examples=None, min_length=1, max_length=30, pattern="(^[а-яА-ЯёЁ' \\-]+$)", default=None
+        examples=None,
+        min_length=1,
+        max_length=30,
+        pattern="(^[а-яА-ЯёЁ' \\-]+$)",
+        default=None,
     )
     idDocumentNumber: Optional[str] = Field(
-        examples=["09740475", "901270245"], min_length=7, max_length=14, pattern=None, default=None
+        examples=["09740475", "901270245"],
+        min_length=7,
+        max_length=14,
+        pattern=None,
+        default=None,
     )
     identificationNumber: Optional[str] = Field(
         examples=None, min_length=None, max_length=None, pattern=None, default=None
@@ -195,13 +223,21 @@ class RecipientDetails(BaseModel):
         examples=["006"], min_length=3, max_length=3, pattern="(\\d{3})", default=None
     )
     interacAccount: Optional[str] = Field(
-        examples=["example@example.ex"], min_length=6, max_length=50, pattern="(.*)", default=None
+        examples=["example@example.ex"],
+        min_length=6,
+        max_length=50,
+        pattern="(.*)",
+        default=None,
     )
     job: Optional[str] = Field(
         examples=None, min_length=3, max_length=22, pattern=None, default=None
     )
     patronymicName: Optional[str] = Field(
-        examples=None, min_length=1, max_length=30, pattern="(^[а-яА-ЯёЁ' \\-]+$)", default=None
+        examples=None,
+        min_length=1,
+        max_length=30,
+        pattern="(^[а-яА-ЯёЁ' \\-]+$)",
+        default=None,
     )
     phoneNumber: Optional[str] = Field(
         examples=[
@@ -218,7 +254,11 @@ class RecipientDetails(BaseModel):
         default=None,
     )
     prefix: Optional[str] = Field(
-        examples=["000000"], min_length=None, max_length=6, pattern="(^\\d{0,6}$)", default=None
+        examples=["000000"],
+        min_length=None,
+        max_length=6,
+        pattern="(^\\d{0,6}$)",
+        default=None,
     )
     rut: Optional[str] = Field(
         examples=["760864285"],

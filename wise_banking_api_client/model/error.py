@@ -1,6 +1,7 @@
 """An error response from Wise."""
 
 from typing import ClassVar, Optional
+
 from pydantic import BaseModel
 
 

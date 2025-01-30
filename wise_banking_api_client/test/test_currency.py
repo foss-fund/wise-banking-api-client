@@ -1,7 +1,5 @@
 """Test the currencies and the endpoint."""
 
-import pytest
-
 from wise_banking_api_client.model.currency import Currency
 
 

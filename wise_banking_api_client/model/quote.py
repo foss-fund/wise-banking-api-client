@@ -4,13 +4,16 @@ See https://docs.wise.com/api-docs/api-reference/quote#object
 """
 
 from __future__ import annotations
+
 from typing import ClassVar, Optional
+
 from wise_banking_api_client.model.profile import PROFILE_TYPE
-from .enum import StrEnum
+
 from .base import DOCUMENTED_BUT_ABSENT, BaseModel
-from .uuid import UUID
 from .currency import CURRENCY
+from .enum import StrEnum
 from .timestamp import Timestamp
+from .uuid import UUID
 
 
 class RateType(StrEnum):
@@ -378,7 +381,6 @@ class NoticeType(StrEnum):
 
 
 class Notice(BaseModel):
-
     EXAMPLE_JSON: ClassVar[
         str
     ] = """
@@ -1607,25 +1609,25 @@ class QuoteUpdate(BaseModel):
 
 
 __all__ = [
-    "QuoteResponse",
-    "QuoteStatus",
+    "DeliveryDelay",
+    "ExampleQuoteRequest",
     "Notice",
     "NoticeType",
+    "PayInProduct",
+    "PaymentMetadata",
+    "PaymentMethod",
     "PaymentOption",
     "PaymentOptionFee",
     "PaymentOptionPrice",
-    "PricingConfiguration",
-    "ProvidedAmountType",
-    "RateType",
-    "DeliveryDelay",
-    "PricingConfigurationFee",
-    "PriceType",
-    "ExampleQuoteRequest",
-    "QuoteRequest",
-    "PaymentMethod",
-    "PaymentMetadata",
-    "QuoteUpdate",
     "Price",
+    "PriceType",
     "PriceValue",
-    "PayInProduct",
+    "PricingConfiguration",
+    "PricingConfigurationFee",
+    "ProvidedAmountType",
+    "QuoteRequest",
+    "QuoteResponse",
+    "QuoteStatus",
+    "QuoteUpdate",
+    "RateType",
 ]

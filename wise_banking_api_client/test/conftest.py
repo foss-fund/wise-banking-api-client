@@ -11,19 +11,25 @@ You can add responses by running this in your codebase:
 """
 
 import os
-from typing import Generator
+from collections.abc import Generator
 from unittest.mock import MagicMock
-from munch import Munch
+
 import pytest
+from munch import Munch
+
 from wise_banking_api_client import Client
 from wise_banking_api_client.client import DEFAULT_PRIVATE_KEY, DEFAULT_PUBLIC_KEY
 from wise_banking_api_client.endpoint import WiseAPIError
-from wise_banking_api_client.model.legal_type import LegalType
 from wise_banking_api_client.model.account import (
     AccountRequirement,
     RecipientAccountRequirements,
     RecipientAccountResponse,
 )
+from wise_banking_api_client.model.account_requirement_type import (
+    AccountRequirementType,
+)
+from wise_banking_api_client.model.currency import Currency, CurrencyCode
+from wise_banking_api_client.model.legal_type import LegalType
 from wise_banking_api_client.model.payment import PaymentResponse
 from wise_banking_api_client.model.profile import Profile, Profiles
 from wise_banking_api_client.model.quote import (
@@ -34,14 +40,12 @@ from wise_banking_api_client.model.quote import (
 )
 from wise_banking_api_client.model.recipient import Recipient
 from wise_banking_api_client.model.recipient.details import RecipientDetails
-from wise_banking_api_client.model.account_requirement_type import AccountRequirementType
 from wise_banking_api_client.model.transfer import (
     TransferDetails,
     TransferRequest,
     TransferResponse,
 )
 from wise_banking_api_client.test.record import TestClient
-from wise_banking_api_client.model.currency import Currency, CurrencyCode
 
 
 @pytest.fixture(scope="package")
@@ -230,7 +234,9 @@ def sandbox_quote_request() -> QuoteRequest:
 
 @pytest.fixture(scope="session")
 def sandbox_quote(
-    sandbox_client: Client, sandbox_quote_request: QuoteRequest, sandbox_business_profile: Profile
+    sandbox_client: Client,
+    sandbox_quote_request: QuoteRequest,
+    sandbox_business_profile: Profile,
 ) -> QuoteResponse:
     """A Quote to send money to Max Mustermann."""
     return sandbox_client.quotes.create(sandbox_quote_request, sandbox_business_profile)
@@ -256,7 +262,8 @@ def sandbox_quote_updated(
 
 @pytest.fixture(scope="session")
 def sandbox_transfer_request(
-    sandbox_quote_updated: QuoteResponse, sandbox_iban_recipient: RecipientAccountResponse
+    sandbox_quote_updated: QuoteResponse,
+    sandbox_iban_recipient: RecipientAccountResponse,
 ) -> TransferRequest:
     """Create a transfer request."""
     return TransferRequest(
@@ -284,7 +291,9 @@ def sandbox_transfer(
 
 @pytest.fixture(scope="session")
 def sandbox_payment(
-    sandbox_client: Client, sandbox_transfer: TransferResponse, sandbox_business_profile: Profile
+    sandbox_client: Client,
+    sandbox_transfer: TransferResponse,
+    sandbox_business_profile: Profile,
 ) -> PaymentResponse:
     """Return the payment response."""
     try:

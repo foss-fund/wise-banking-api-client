@@ -3,10 +3,10 @@
 See https://stackoverflow.com/a/77543303/1320237
 """
 
-from typing import Optional
-from typing_extensions import Annotated
 from datetime import date, datetime, timezone
-from pydantic import PlainSerializer, BeforeValidator
+from typing import Annotated, Optional
+
+from pydantic import BeforeValidator, PlainSerializer
 
 DATETIME_FORMAT = "%Y-%m-%dT%H:%M:%SZ"
 
@@ -61,10 +61,10 @@ OptionalDate = Annotated[
 
 
 __all__ = [
-    "Timestamp",
     "DATETIME_FORMAT",
-    "parse_timestamp",
-    "serialize_timestamp",
     "Date",
     "OptionalDate",
+    "Timestamp",
+    "parse_timestamp",
+    "serialize_timestamp",
 ]

@@ -39,12 +39,10 @@ self.f = deprecated.{orig.__name__}  # adds a 'deprecated.' prefix to the functi
     def __call__(self, *args, **kwargs):
         if self.f:
             return self.f(*args, **kwargs)
-        else:
-            assert len(args) == 1 and callable(args[0])
-            return deprecated(args[0], message=self.message).f
+        assert len(args) == 1 and callable(args[0])
+        return deprecated(args[0], message=self.message).f
 
     def __repr__(self):
         if self.f:
             return repr(self.f)
-        else:
-            return f"<deprecation decorator ({self.message!r})>"
+        return f"<deprecation decorator ({self.message!r})>"

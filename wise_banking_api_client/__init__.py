@@ -1,11 +1,19 @@
 from __future__ import annotations
-from .endpoint import PrivateKeyForSCARequired, WiseAPIError, JsonEndpoint, JsonEndpointWithSCA
-from .client import Client, DEFAULT_PRIVATE_KEY, DEFAULT_PUBLIC_KEY
+
+from .client import DEFAULT_PRIVATE_KEY, DEFAULT_PUBLIC_KEY, Client
+from .endpoint import (
+    JsonEndpoint,
+    JsonEndpointWithSCA,
+    PrivateKeyForSCARequired,
+    WiseAPIError,
+)
 from .model import *
 from .version import __version__, __version_tuple__, version, version_tuple
 
-
 __all__ = [
+    "DEFAULT_PRIVATE_KEY",
+    "DEFAULT_PUBLIC_KEY",
+    "PROFILE_TYPE",
     "AccountRequirement",
     "AccountRequirementType",
     "AddressDetails",
@@ -16,19 +24,16 @@ __all__ = [
     "CommonFieldMap",
     "CompanyRole",
     "CompanyType",
-    "new_uuid",
     "Country",
     "Currency",
     "CurrencyCode",
-    "DEFAULT_PRIVATE_KEY",
-    "DEFAULT_PUBLIC_KEY",
     "DeliveryDelay",
     "DisplayField",
     "EmailDetails",
     "ExampleQuoteRequest",
-    "Price",
-    "PriceType",
     "FilledInRecipientAccountRequest",
+    "JsonEndpoint",
+    "JsonEndpointWithSCA",
     "LegalEntityType",
     "LegalType",
     "Notice",
@@ -36,7 +41,7 @@ __all__ = [
     "Occupation",
     "OccupationFormat",
     "OriginatorGroup",
-    "PROFILE_TYPE",
+    "PayInProduct",
     "PayInProduct",
     "Payment",
     "PaymentMetadata",
@@ -49,8 +54,12 @@ __all__ = [
     "PaymentType",
     "PaymentWithPartnerReference",
     "PersonalProfileDetails",
+    "Price",
+    "PriceType",
+    "PriceValue",
     "PricingConfiguration",
     "PricingConfigurationFee",
+    "PrivateKeyForSCARequired",
     "Profile",
     "ProvidedAmountType",
     "QuoteRequest",
@@ -76,13 +85,9 @@ __all__ = [
     "TransferRequirement",
     "TransferResponse",
     "TransferStatus",
+    "WiseAPIError",
+    "new_uuid",
     "profile_type",
-    "PriceValue",
-    "PayInProduct",
     "version",
     "version_tuple",
-    "PrivateKeyForSCARequired",
-    "WiseAPIError",
-    "JsonEndpoint",
-    "JsonEndpointWithSCA",
 ]

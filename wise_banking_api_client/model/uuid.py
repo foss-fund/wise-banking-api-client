@@ -1,6 +1,4 @@
-"""This is a simple way to generate UUIDs.
-
-"""
+"""This is a simple way to generate UUIDs."""
 
 import uuid
 from uuid import UUID

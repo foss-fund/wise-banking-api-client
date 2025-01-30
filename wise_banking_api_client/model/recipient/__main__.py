@@ -1,11 +1,11 @@
 from collections import defaultdict, namedtuple
+from pathlib import Path
 
-from pydantic import Field
+from requests.exceptions import ConnectionError
+
+from wise_banking_api_client import Currency
 from wise_banking_api_client.model.requirements import RequiredFieldType
 from wise_banking_api_client.test import TestClient
-from wise_banking_api_client import Currency
-from requests.exceptions import ConnectionError
-from pathlib import Path
 
 #   SchemaError: regex parse error:
 # error: backreferences are not supported
@@ -61,7 +61,7 @@ def generate_recipient_details():
     text.pop("dateOfBirth")
     for key, value in text.copy().items():
         pattern = "(" + ")|(".join(sorted(value[4])) + ")" if value[4] else None
-        examples = list(sorted(value[1])) if value[1] else None
+        examples = sorted(value[1]) if value[1] else None
         text[key] = (
             value[0]
             + f"examples={examples!r}, "
@@ -85,10 +85,10 @@ from typing import Literal, TypeAlias
         literals = []
         for key, values in sorted(select.copy().items()):
             k = key.upper().replace(".", "_")
-            print(f"{k}_VALUES = {list(sorted(values))}", file=f)
+            print(f"{k}_VALUES = {sorted(values)}", file=f)
             print(f"{k} : TypeAlias = Literal[*{k}_VALUES]", file=f)
             literals.append(k)
-        literals = list(sorted(literals))
+        literals = sorted(literals)
         print(f"__all__ = {literals}", file=f)
 
     with (HERE / "details.py").open("w") as f:
@@ -102,7 +102,7 @@ from .address import AddressDetails
 from pydantic import BaseModel, Field
 from typing import Literal, Optional
 from datetime import date
-from .literals import {', '.join(literals)}
+from .literals import {", ".join(literals)}
         
 class RecipientDetails(BaseModel):
     """The recipient details model.
@@ -117,7 +117,10 @@ class RecipientDetails(BaseModel):
         )
         for key, values in sorted(select.items()):
             if not key.startswith("address"):
-                print(f"    {key}: Optional[{key.upper().replace(".", "_")}] = None", file=f)
+                print(
+                    f"    {key}: Optional[{key.upper().replace('.', '_')}] = None",
+                    file=f,
+                )
         for key, value in sorted(text.items()):
             if not key.startswith("address"):
                 print(f"    {value}", file=f)
@@ -177,7 +180,10 @@ class AddressDetails(BaseModel):
                 print(f"    {value[8:]}", file=f)
         for key, values in sorted(select.items()):
             if key.startswith("address"):
-                print(f"    {key[8:]}: Optional[{key.upper().replace(".", "_")}] = None", file=f)
+                print(
+                    f"    {key[8:]}: Optional[{key.upper().replace('.', '_')}] = None",
+                    file=f,
+                )
         print(
             """
 __all__ = ["AddressDetails"]

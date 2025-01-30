@@ -10,7 +10,6 @@ except ImportError:
     )
 from pathlib import Path
 
-
 HERE = Path(__file__).parent
 LICENSE = (HERE / "LICENSE").read_text()
 
@@ -25,9 +24,7 @@ def opt_license(*param_decls: str, **kwargs: Any) -> Callable:
     This is copied from the --help option.
     """
 
-    def callback(
-        ctx: click.Context, param: click.Parameter, value: bool
-    ) -> None:  # noqa: FBT001, ARG001
+    def callback(ctx: click.Context, param: click.Parameter, value: bool) -> None:  # noqa: FBT001
         if not value or ctx.resilient_parsing:
             return
         click.echo(LICENSE)
@@ -85,7 +82,6 @@ def main():
         The private key to use.
         By default this is ./wise.com.private.pem
     """
-    pass
 
 
 @main.command()
@@ -141,7 +137,7 @@ def check(api_key: str, private_key: Optional[Path], env: list[str]):
                     permissions.append("sca")
         if not permissions:
             permissions = ["none"]
-        click.echo(f"Permissions on {environment}: {"+".join(permissions)}")
+        click.echo(f"Permissions on {environment}: {'+'.join(permissions)}")
 
 
 if __name__ == "__main__":

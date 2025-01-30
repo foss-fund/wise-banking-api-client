@@ -112,10 +112,10 @@ class Client:
         from wise_banking_api_client.profile import Profile
         from wise_banking_api_client.quote import Quote
         from wise_banking_api_client.recipient_account import RecipientAccount
+        from wise_banking_api_client.sandbox_simulation import TransferSimulation
         from wise_banking_api_client.subscription import Subscription
         from wise_banking_api_client.transfer import Transfer
         from wise_banking_api_client.user import User
-        from wise_banking_api_client.sandbox_simulation import TransferSimulation
 
         self.account_details = AccountDetails(client=self)
         self.balance_statements = BalanceStatements(client=self)
@@ -181,8 +181,8 @@ class Client:
 
         We try to create a quote.
         """
-        from wise_banking_api_client.quote import QuoteRequest
         from wise_banking_api_client.endpoint import WiseAPIError
+        from wise_banking_api_client.quote import QuoteRequest
 
         try:
             self.quotes.create(
@@ -220,4 +220,4 @@ class Client:
         return True
 
 
-__all__ = ["Client", "DEFAULT_PRIVATE_KEY", "DEFAULT_PUBLIC_KEY", "Environment"]
+__all__ = ["DEFAULT_PRIVATE_KEY", "DEFAULT_PUBLIC_KEY", "Client", "Environment"]

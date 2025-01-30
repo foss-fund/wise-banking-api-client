@@ -1,41 +1,41 @@
 """Model/Data objects to communicate with Wise."""
 
+from .account import *
+from .country_codes import Country
 from .currency import *
 from .enum import *
 from .error import *
+from .legal_type import LegalType
+from .payment import *
 from .profile import *
 from .quote import *
+from .recipient import AddressDetails, EmailDetails, Recipient, RecipientDetails
+from .requirements import *
 from .timestamp import *
 from .transfer import *
 from .uuid import *
-from .account import *
-from .recipient import RecipientDetails, Recipient, EmailDetails, AddressDetails
-from .country_codes import Country
-from .payment import *
-from .requirements import *
-from .legal_type import LegalType
 
 __all__ = [
+    "CURRENCY",
+    "DATETIME_FORMAT",
+    "PROFILE_TYPE",
+    "UUID",
     "AccountRequirement",
     "AccountRequirementType",
     "AddressDetails",
     "AllowedValue",
     "BusinessCategory",
     "BusinessProfileDetails",
-    "CURRENCY",
     "CommonFieldMap",
     "CompanyRole",
     "CompanyType",
     "Country",
     "Currency",
     "CurrencyCode",
-    "DATETIME_FORMAT",
     "DeliveryDelay",
     "DisplayField",
     "EmailDetails",
     "ExampleQuoteRequest",
-    "Price",
-    "PriceType",
     "FilledInRecipientAccountRequest",
     "LegalEntityType",
     "LegalType",
@@ -44,7 +44,7 @@ __all__ = [
     "Occupation",
     "OccupationFormat",
     "OriginatorGroup",
-    "PROFILE_TYPE",
+    "PayInProduct",
     "PayInProduct",
     "Payment",
     "PaymentMetadata",
@@ -57,6 +57,9 @@ __all__ = [
     "PaymentType",
     "PaymentWithPartnerReference",
     "PersonalProfileDetails",
+    "Price",
+    "PriceType",
+    "PriceValue",
     "PricingConfiguration",
     "PricingConfigurationFee",
     "Profile",
@@ -85,11 +88,8 @@ __all__ = [
     "TransferRequirement",
     "TransferResponse",
     "TransferStatus",
-    "UUID",
     "new_uuid",
     "parse_timestamp",
     "profile_type",
     "serialize_timestamp",
-    "PriceValue",
-    "PayInProduct",
 ]
