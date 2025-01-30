@@ -680,6 +680,10 @@ The CI should build, test and push a new version to [PyPI].
 
 ## Changelog
 
+### v0.0.3
+
+* Test compatibility with Python 3.13
+
 ### v0.0.2
 
 * Remove unused test environments
