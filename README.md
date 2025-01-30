@@ -7,12 +7,18 @@ wise-banking-api-client
 [![Downloads](https://img.shields.io/pypi/dm/wise-banking-api-client.svg)](https://pypi.org/project/wise-banking-api-client#files)
 ![Code Style: Black](https://img.shields.io/badge/code%20style-black-000000.svg)
 
-An unofficial Python client library for the [Wise API](https://docs.wise.com/api-docs/api-reference).
+An unofficial Python client library for the [Wise API].
 
 The classes, functions and interfaces that this library provides are very much in-development and prone to change.
-This is a fork of [pywisetransfer].
+
+Ecosystem:
+
+* [pywisetransfer] is a slim and easy-to-understand client library for the [Wise API].
+* This is a fork of [pywisetransfer] to enhance functionality. It is built with [pydantic] to test completeness, validate responses and requests to make sure API changes and inconsistencies in the official documentation are detected. The focus is on ease of use, documentation and features to support developers make less mistakes and write code faster.
 
 [pywisetransfer]: https://github.com/jayaddison/pywisetransfer
+[Wise API]: https://docs.wise.com/api-docs/api-reference
+[pydantic]: https://docs.pydantic.dev
 
 ## Installation
 
