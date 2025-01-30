@@ -15,6 +15,7 @@ jobs:
       matrix:
         config:
         # [Python version, tox env]
+        - ["3.11",  "py311"]
         - ["3.12",  "py312"]
         - ["3.12",   "black -- --check"]
     runs-on: ubuntu-latest
